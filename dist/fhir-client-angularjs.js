@@ -26441,6 +26441,7 @@ BBClient.ready = function(input, callback, errback){
       var nearExpTime = Math.floor(Date.now() / 1000) >= (payloadCheck['exp'] - 120);
 
       if (tokenResponse.refresh_token
+        && tokenResponse.scope
         && tokenResponse.scope.indexOf('online_access') > -1
         && nearExpTime) { // refresh token flow
         accessTokenResolver = completeTokenRefreshFlow();
